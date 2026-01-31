@@ -1,0 +1,21 @@
+/* Don't change the existing CSS. */
+
+body {
+  border: 15px solid purple;
+}
+
+.box {
+  background-color: blue;
+  padding: 10px;
+}
+
+.inner-box {
+  margin: 10px;
+  padding: 10px;
+  background-color: red;
+}
+p {
+  color: yellow;
+  margin: 0;
+  padding: 0;
+}
