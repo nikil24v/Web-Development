@@ -1,0 +1,66 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 50px;
+  min-height: 95vh;
+}
+
+.main {
+  width: 100%;
+}
+
+.main > img {
+  width: 150px;
+}
+
+/* Main heading */
+h1 {
+  font-size: 5rem;
+  margin: 30px 0;
+}
+
+/* Shared card styles */
+.card {
+  width: 45%;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-text {
+  margin-top: 10px;
+}
+
+/* LEFT SECTION */
+.left-image {
+  float: left;
+  width: 45%;
+}
+
+.left-image img {
+  float: left;
+  width: 300px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+/* RIGHT SECTION */
+.right-image {
+  float: right;
+  width: 45%;
+}
+
+.right-image img {
+  float: left;
+  width: 300px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+/* Clear floats after sections */
+.left-image::after,
+.right-image::after {
+  content: "";
+  display: block;
+  clear: both;
+}
