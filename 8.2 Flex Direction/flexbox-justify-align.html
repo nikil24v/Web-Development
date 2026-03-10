@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justify-Content & Align-Items in Flexbox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      border-left: 5px solid #3498db;
+      padding-left: 10px;
+    }
+
+    /* ============ JUSTIFY-CONTENT EXAMPLES ============ */
+
+    .justify-container {
+      border: 3px solid #3498db;
+      background-color: #ecf0f1;
+      height: 150px;
+      display: flex;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    .justify-item {
+      width: 80px;
+      height: 80px;
+      background-color: #e74c3c;
+      border: 2px solid #c0392b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+
+    /* Justify-Content Values */
+    .justify-flex-start {
+      justify-content: flex-start;
+    }
+
+    .justify-flex-end {
+      justify-content: flex-end;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .justify-space-between {
+      justify-content: space-between;
+    }
+
+    .justify-space-around {
+      justify-content: space-around;
+    }
+
+    .justify-space-evenly {
+      justify-content: space-evenly;
+    }
+
+    /* ============ ALIGN-ITEMS EXAMPLES ============ */
+
+    .align-container {
+      border: 3px solid #27ae60;
+      background-color: #ecf0f1;
+      height: 200px;
+      display: flex;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    .align-item {
+      width: 60px;
+      background-color: #9b59b6;
+      border: 2px solid #8e44ad;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin: 0 5px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .align-item-1 { height: 80px; }
+    .align-item-2 { height: 120px; }
+    .align-item-3 { height: 100px; }
+    .align-item-4 { height: 90px; }
+
+    /* Align-Items Values */
+    .align-flex-start {
+      align-items: flex-start;
+    }
+
+    .align-flex-end {
+      align-items: flex-end;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .align-stretch {
+      align-items: stretch;
+    }
+
+    .align-baseline {
+      align-items: baseline;
+    }
+
+    /* ============ COMBINED EXAMPLES ============ */
+
+    .combined-container {
+      border: 3px solid #f39c12;
+      background-color: #ecf0f1;
+      height: 200px;
+      display: flex;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    .combined-item {
+      width: 70px;
+      height: 70px;
+      background-color: #16a085;
+      border: 2px solid #117a65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+
+    .combined-center {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .combined-space-center {
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .combined-space-end {
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    /* Labels for examples */
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .description {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
+      background-color: #fffacd;
+      padding: 8px;
+      border-left: 3px solid #f1c40f;
+    }
+
+    /* Table for reference */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+    }
+
+    th, td {
+      border: 1px solid #bdc3c7;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #34495e;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ecf0f1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>🎯 Justify-Content & Align-Items in Flexbox</h1>
+
+  <!-- ============ JUSTIFY-CONTENT SECTION ============ -->
+  <div class="section">
+    <div class="section-title">1️⃣ JUSTIFY-CONTENT (Main Axis Alignment)</div>
+    <p class="description">
+      <strong>justify-content</strong> aligns flex items along the <strong>main axis</strong> (horizontal in row direction, vertical in column direction)
+    </p>
+
+    <!-- flex-start -->
+    <div class="label">flex-start (default)</div>
+    <p class="description">Items align to the start of the container</p>
+    <div class="justify-container justify-flex-start">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- flex-end -->
+    <div class="label">flex-end</div>
+    <p class="description">Items align to the end of the container</p>
+    <div class="justify-container justify-flex-end">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- center -->
+    <div class="label">center</div>
+    <p class="description">Items align to the center of the container</p>
+    <div class="justify-container justify-center">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- space-between -->
+    <div class="label">space-between</div>
+    <p class="description">Items distributed with equal space BETWEEN them</p>
+    <div class="justify-container justify-space-between">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- space-around -->
+    <div class="label">space-around</div>
+    <p class="description">Items distributed with equal space AROUND them</p>
+    <div class="justify-container justify-space-around">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- space-evenly -->
+    <div class="label">space-evenly</div>
+    <p class="description">Items and space all have equal distribution</p>
+    <div class="justify-container justify-space-evenly">
+      <div class="justify-item">1</div>
+      <div class="justify-item">2</div>
+      <div class="justify-item">3</div>
+    </div>
+
+    <!-- Justify-Content Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>flex-start</code></td>
+          <td>Items align to the start (default behavior)</td>
+        </tr>
+        <tr>
+          <td><code>flex-end</code></td>
+          <td>Items align to the end</td>
+        </tr>
+        <tr>
+          <td><code>center</code></td>
+          <td>Items align to the center</td>
+        </tr>
+        <tr>
+          <td><code>space-between</code></td>
+          <td>First item at start, last at end, equal space between</td>
+        </tr>
+        <tr>
+          <td><code>space-around</code></td>
+          <td>Equal space around each item</td>
+        </tr>
+        <tr>
+          <td><code>space-evenly</code></td>
+          <td>Equal space around items and edges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ ALIGN-ITEMS SECTION ============ -->
+  <div class="section">
+    <div class="section-title">2️⃣ ALIGN-ITEMS (Cross Axis Alignment)</div>
+    <p class="description">
+      <strong>align-items</strong> aligns flex items along the <strong>cross axis</strong> (vertical in row direction, horizontal in column direction)
+    </p>
+
+    <!-- flex-start -->
+    <div class="label">flex-start</div>
+    <p class="description">Items align to the start of the cross axis</p>
+    <div class="align-container align-flex-start">
+      <div class="align-item align-item-1">1</div>
+      <div class="align-item align-item-2">2</div>
+      <div class="align-item align-item-3">3</div>
+      <div class="align-item align-item-4">4</div>
+    </div>
+
+    <!-- flex-end -->
+    <div class="label">flex-end</div>
+    <p class="description">Items align to the end of the cross axis</p>
+    <div class="align-container align-flex-end">
+      <div class="align-item align-item-1">1</div>
+      <div class="align-item align-item-2">2</div>
+      <div class="align-item align-item-3">3</div>
+      <div class="align-item align-item-4">4</div>
+    </div>
+
+    <!-- center -->
+    <div class="label">center</div>
+    <p class="description">Items align to the center of the cross axis</p>
+    <div class="align-container align-center">
+      <div class="align-item align-item-1">1</div>
+      <div class="align-item align-item-2">2</div>
+      <div class="align-item align-item-3">3</div>
+      <div class="align-item align-item-4">4</div>
+    </div>
+
+    <!-- stretch -->
+    <div class="label">stretch (default)</div>
+    <p class="description">Items stretch to fill the cross axis</p>
+    <div class="align-container align-stretch">
+      <div class="align-item align-item-1">1</div>
+      <div class="align-item align-item-2">2</div>
+      <div class="align-item align-item-3">3</div>
+      <div class="align-item align-item-4">4</div>
+    </div>
+
+    <!-- baseline -->
+    <div class="label">baseline</div>
+    <p class="description">Items align based on their baseline (text baseline)</p>
+    <div class="align-container align-baseline">
+      <div class="align-item align-item-1">A</div>
+      <div class="align-item align-item-2">B</div>
+      <div class="align-item align-item-3">C</div>
+      <div class="align-item align-item-4">D</div>
+    </div>
+
+    <!-- Align-Items Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Value</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>flex-start</code></td>
+          <td>Items align to the start of cross axis</td>
+        </tr>
+        <tr>
+          <td><code>flex-end</code></td>
+          <td>Items align to the end of cross axis</td>
+        </tr>
+        <tr>
+          <td><code>center</code></td>
+          <td>Items align to the center of cross axis</td>
+        </tr>
+        <tr>
+          <td><code>stretch</code></td>
+          <td>Items stretch to fill the cross axis (default)</td>
+        </tr>
+        <tr>
+          <td><code>baseline</code></td>
+          <td>Items align based on their baseline</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ COMBINED EXAMPLES ============ -->
+  <div class="section">
+    <div class="section-title">3️⃣ COMBINED: justify-content + align-items</div>
+    <p class="description">
+      Use both properties together to position items on both axes simultaneously!
+    </p>
+
+    <!-- Center both axes -->
+    <div class="label">justify-content: center + align-items: center</div>
+    <p class="description">Perfect centering - items centered on both main and cross axes</p>
+    <div class="combined-container combined-center">
+      <div class="combined-item">1</div>
+      <div class="combined-item">2</div>
+      <div class="combined-item">3</div>
+    </div>
+
+    <!-- Space around + center -->
+    <div class="label">justify-content: space-around + align-items: center</div>
+    <p class="description">Space items along main axis, center them on cross axis</p>
+    <div class="combined-container combined-space-center">
+      <div class="combined-item">1</div>
+      <div class="combined-item">2</div>
+      <div class="combined-item">3</div>
+    </div>
+
+    <!-- Space between + flex-end -->
+    <div class="label">justify-content: space-between + align-items: flex-end</div>
+    <p class="description">Space items on main axis, align to end on cross axis</p>
+    <div class="combined-container combined-space-end">
+      <div class="combined-item">1</div>
+      <div class="combined-item">2</div>
+      <div class="combined-item">3</div>
+    </div>
+
+    <!-- Combined Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>justify-content</th>
+          <th>align-items</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>center</code></td>
+          <td><code>center</code></td>
+          <td>Items perfectly centered both horizontally and vertically</td>
+        </tr>
+        <tr>
+          <td><code>space-around</code></td>
+          <td><code>center</code></td>
+          <td>Items evenly spaced horizontally, centered vertically</td>
+        </tr>
+        <tr>
+          <td><code>space-between</code></td>
+          <td><code>flex-start</code></td>
+          <td>Items spread out horizontally, aligned to top</td>
+        </tr>
+        <tr>
+          <td><code>flex-end</code></td>
+          <td><code>flex-end</code></td>
+          <td>Items aligned to bottom-right</td>
+        </tr>
+        <tr>
+          <td><code>center</code></td>
+          <td><code>stretch</code></td>
+          <td>Items centered horizontally, stretched vertically</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ QUICK REFERENCE ============ -->
+  <div class="section">
+    <div class="section-title">📋 Quick Reference</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Axis</th>
+          <th>Direction (Row)</th>
+          <th>Direction (Column)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>justify-content</strong></td>
+          <td>Main Axis</td>
+          <td>Horizontal (left-right)</td>
+          <td>Vertical (top-bottom)</td>
+        </tr>
+        <tr>
+          <td><strong>align-items</strong></td>
+          <td>Cross Axis</td>
+          <td>Vertical (top-bottom)</td>
+          <td>Horizontal (left-right)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

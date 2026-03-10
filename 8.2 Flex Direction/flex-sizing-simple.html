@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Sizing Basics</title>
+  <link rel="stylesheet" href="flex-sizing-simple.css">
+</head>
+
+<body>
+
+  <h1>Flex Sizing Explained Simply</h1>
+
+  <!-- ============ FLEX-BASIS ============ -->
+  <div class="section">
+    <div class="section-title">1. flex-basis (Default Size)</div>
+    
+    <div class="explanation">
+      <strong>flex-basis</strong> sets the initial size of a flex item before it grows or shrinks.
+      Think of it as the "starting size" you give each item.
+    </div>
+
+    <div class="example-title">Example 1: flex-basis: 80px</div>
+    <div class="code">
+.item { flex-basis: 80px; }
+    </div>
+    <div class="container">
+      <div class="item blue-item basis-80">80px</div>
+      <div class="item blue-item basis-80">80px</div>
+      <div class="item blue-item basis-80">80px</div>
+    </div>
+
+    <div class="example-title">Example 2: flex-basis: 150px (larger)</div>
+    <div class="code">
+.item { flex-basis: 150px; }
+    </div>
+    <div class="container">
+      <div class="item green-item basis-150">150px</div>
+      <div class="item green-item basis-150">150px</div>
+    </div>
+
+    <div class="example-title">Example 3: flex-basis: auto (by content)</div>
+    <div class="code">
+.item { flex-basis: auto; }
+    </div>
+    <div class="container">
+      <div class="item red-item basis-auto">Short</div>
+      <div class="item red-item basis-auto">Much Longer Text</div>
+      <div class="item red-item basis-auto">M</div>
+    </div>
+  </div>
+
+  <!-- ============ FLEX-GROW ============ -->
+  <div class="section">
+    <div class="section-title">2. flex-grow (Expanding)</div>
+    
+    <div class="explanation">
+      <strong>flex-grow</strong> controls how much an item expands when there's extra space.
+      Higher number = grows more. Default is 0 (doesn't grow).
+    </div>
+
+    <div class="example-title">Example 1: flex-grow: 0 (no growth)</div>
+    <div class="code">
+.item { flex-grow: 0; }
+    </div>
+    <div class="container">
+      <div class="item blue-item grow-0">0</div>
+      <div class="item blue-item grow-0">0</div>
+      <div class="item blue-item grow-0">0</div>
+    </div>
+
+    <div class="example-title">Example 2: flex-grow: 1 (all grow equally)</div>
+    <div class="code">
+.item { flex-grow: 1; }
+    </div>
+    <div class="container">
+      <div class="item green-item grow-1">1</div>
+      <div class="item green-item grow-1">1</div>
+      <div class="item green-item grow-1">1</div>
+    </div>
+
+    <div class="example-title">Example 3: Different flex-grow values (1, 2, 1)</div>
+    <div class="code">
+First: flex-grow: 1
+Second: flex-grow: 2
+Third: flex-grow: 1
+    </div>
+    <div class="container">
+      <div class="item red-item grow-1-1">1</div>
+      <div class="item red-item grow-2">2</div>
+      <div class="item red-item grow-1-1">1</div>
+    </div>
+    <div class="explanation">
+      The second item (with flex-grow: 2) grows twice as much as the others!
+    </div>
+  </div>
+
+  <!-- ============ FLEX-SHRINK ============ -->
+  <div class="section">
+    <div class="section-title">3. flex-shrink (Shrinking)</div>
+    
+    <div class="explanation">
+      <strong>flex-shrink</strong> controls how much an item shrinks when space is tight.
+      Higher number = shrinks more. Default is 1 (all shrink equally).
+    </div>
+
+    <div class="example-title">Example 1: flex-shrink: 1 (all shrink equally - default)</div>
+    <div class="code">
+.item { flex-shrink: 1; flex-basis: 150px; }
+Container is narrow (300px) - items must shrink!
+    </div>
+    <div class="container narrow">
+      <div class="item blue-item shrink-1">1</div>
+      <div class="item blue-item shrink-1">1</div>
+    </div>
+
+    <div class="example-title">Example 2: flex-shrink: 0 (doesn't shrink - overflows)</div>
+    <div class="code">
+.item { flex-shrink: 0; flex-basis: 150px; }
+    </div>
+    <div class="container overflow">
+      <div class="item green-item shrink-0">0</div>
+      <div class="item green-item shrink-0">0</div>
+    </div>
+    <div class="explanation">
+      Items with flex-shrink: 0 keep their size and overflow the container!
+    </div>
+  </div>
+
+  <!-- ============ FLEX SHORTHAND ============ -->
+  <div class="section">
+    <div class="section-title">4. flex (Shorthand)</div>
+    
+    <div class="explanation">
+      <strong>flex</strong> is a quick way to set flex-grow, flex-shrink, and flex-basis all at once.
+      <br><br>
+      <code>flex: [grow] [shrink] [basis]</code>
+    </div>
+
+    <div class="example-title">Example 1: flex: 1 (equal columns)</div>
+    <div class="code">
+.item { flex: 1; }
+/* Same as: flex-grow: 1, flex-shrink: 1, flex-basis: 0 */
+    </div>
+    <div class="container">
+      <div class="item blue-item flex-1">1</div>
+      <div class="item blue-item flex-1">1</div>
+      <div class="item blue-item flex-1">1</div>
+    </div>
+    <div class="explanation">
+      All items take equal space!
+    </div>
+
+    <div class="example-title">Example 2: flex: 0 0 100px (fixed size)</div>
+    <div class="code">
+.item { flex: 0 0 100px; }
+/* No growth, no shrinking, exactly 100px */
+    </div>
+    <div class="container">
+      <div class="item green-item flex-0-0-100">Sidebar</div>
+      <div class="item green-item flex-0-0-100">100px</div>
+      <div class="item green-item flex-0-0-100">100px</div>
+    </div>
+
+    <div class="example-title">Example 3: flex: 1 0 auto (grow but fixed shrink)</div>
+    <div class="code">
+.item { flex: 1 0 auto; }
+/* Grows to fill space, doesn't shrink */
+    </div>
+    <div class="container">
+      <div class="item red-item flex-1-0-auto">Content</div>
+      <div class="item red-item flex-1-0-auto">Content</div>
+      <div class="item red-item flex-1-0-auto">Content</div>
+    </div>
+  </div>
+
+  <!-- ============ PRACTICAL EXAMPLES ============ -->
+  <div class="section">
+    <div class="section-title">5. Real-World Examples</div>
+    
+    <div class="example-title">🎯 Sidebar + Main Content</div>
+    <div class="code">
+Sidebar: flex: 0 0 250px  (fixed width)
+Content: flex: 1          (takes remaining space)
+    </div>
+    <div class="container tall">
+      <div class="item blue-item sidebar">Sidebar<br>(250px)</div>
+      <div class="item green-item main-content">Main Content<br>(grows to fill)</div>
+    </div>
+
+    <div class="example-title">🎯 Three Equal Columns</div>
+    <div class="code">
+All items: flex: 1
+    </div>
+    <div class="container">
+      <div class="item red-item col">Col 1</div>
+      <div class="item red-item col">Col 2</div>
+      <div class="item red-item col">Col 3</div>
+    </div>
+
+    <div class="example-title">🎯 Proportional Layout (1:2:1)</div>
+    <div class="code">
+Item 1: flex: 1
+Item 2: flex: 2
+Item 3: flex: 1
+    </div>
+    <div class="container">
+      <div class="item blue-item col-1x">1x</div>
+      <div class="item blue-item col-2x">2x</div>
+      <div class="item blue-item col-1x">1x</div>
+    </div>
+    <div class="explanation">
+      Middle column is twice as wide as the others!
+    </div>
+  </div>
+
+  <!-- ============ QUICK REFERENCE ============ -->
+  <div class="section">
+    <div class="section-title">📋 Quick Reference</div>
+    
+    <table>
+      <tr>
+        <th>What you want</th>
+        <th>Use this</th>
+      </tr>
+      <tr>
+        <td>Equal width columns</td>
+        <td><code>flex: 1</code></td>
+      </tr>
+      <tr>
+        <td>Fixed width item</td>
+        <td><code>flex: 0 0 100px</code></td>
+      </tr>
+      <tr>
+        <td>No growth/shrinking</td>
+        <td><code>flex: 0 0 auto</code></td>
+      </tr>
+      <tr>
+        <td>Fill available space</td>
+        <td><code>flex: 1 1 auto</code></td>
+      </tr>
+      <tr>
+        <td>Default (no change)</td>
+        <td><code>flex: initial</code></td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>
