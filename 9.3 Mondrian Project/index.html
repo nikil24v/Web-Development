@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mondrian Project</title>
+    <style>
+      /* 
+    Write your CSS here 
+    Gap Colour: #000
+    White: #F0F1EC
+    Red: #E72F24
+    Black: #232629
+    Blue: #004592
+    Yellow: #F9D01E
+
+    For dimensions, see dimensions.png image.
+    HINT: Remember you can't change the properties of grid lines.
+    But grid lines are transparent!
+    */
+
+      body {
+        margin: 0;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .container {
+        display: grid;
+        width: 500px;
+        height: 700px;
+
+        grid-template-columns: 200px 200px 85px;
+        grid-template-rows: 300px 200px 50px 50px;
+
+        gap: 7px;
+        background-color: black;
+      }
+
+      /* 🔴 */
+      .item-red {
+        background-color: #e72f24;
+        grid-column: 1/2;
+        grid-row: 1/2;
+      }
+
+      /* ⚪ top right */
+      .item-white1 {
+        background-color: #f0f1ec;
+        grid-column: 2/4;
+        grid-row: 1/2;
+      }
+
+      /* ⚪ left big */
+      .item-white2 {
+        background-color: #f0f1ec;
+        grid-column: 1/2;
+        grid-row: 2/4;
+      }
+
+      /* ⚪ center */
+      .item-white3 {
+        background-color: #f0f1ec;
+        grid-column: 2/3;
+        grid-row: 2/3;
+      }
+
+      /* 🔵 */
+      .item-blue {
+        background-color: #004592;
+        grid-column: 3/4;
+        grid-row: 2/3;
+      }
+
+      /* ⚪ below blue */
+      .item-white4 {
+        background-color: #f0f1ec;
+        grid-column: 3/4;
+        grid-row: 3/4;
+      }
+
+      /* 🟡 */
+      .item-yellow {
+        background-color: #f9d01e;
+        grid-column: 2/3;
+        grid-row: 4/5;
+      }
+
+      /* ⚫ */
+      .item-black {
+        background-color: #232629;
+        grid-column: 3/4;
+        grid-row: 4/5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Write your HTML here -->
+    <div class="container">
+      <div class="item-red"></div>
+      <div class="item-white1"></div>
+      <div class="item-white2"></div>
+      <div class="item-white3"></div>
+      <div class="item-blue"></div>
+      <div class="white"></div>
+      <div class="item-white4"></div>
+      <div class="item-yellow"></div>
+      <div class="item-black"></div>
+    </div>
+  </body>
+</html>
