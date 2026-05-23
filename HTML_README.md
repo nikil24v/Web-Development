@@ -16,17 +16,14 @@
 
 - Tags and attributes are fundamental building blocks of HTML. Tags define the structure and content of a webpage, such as headings, paragraphs, and images. Attributes provide additional information about HTML elements, modifying their behavior or appearance, like specifying the source of an image or the destination of a link.
 
-- 🔹 Basic Syntax
+- 🔹 Basic Syntax An attribute is always written in the opening tag like this:
 
-An attribute is always written in the opening tag like this:
+      <tagname attribute="value">Content</tagname>
 
-<tagname attribute="value">Content</tagname>
-
-Example:
-
-<a href="https://example.com">Visit site</a>
-href → attribute
-"https://example.com" → value
+        Example:
+        <a href="https://example.com">Visit site</a>
+        href → attribute
+        "https://example.com" → value
 
 ## Case Insensitivity
 - HTML isn't picky about capitalization. You can write tags and attributes using uppercase, lowercase, or a mix of both. For example, <html>, <HTML>, and <Html> all work the same way. While browsers understand all these variations, it's generally considered good practice to stick to lowercase for better readability and consistency in your code.
