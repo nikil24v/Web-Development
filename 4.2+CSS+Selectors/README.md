@@ -57,7 +57,7 @@ Types of CSS Selectors
     1. Universal Selector
 
     Syntax:
-    * {
+    * { 
     text-align: center;
     }
 

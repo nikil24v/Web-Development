@@ -1,12 +1,45 @@
-<form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box model</title>
+    <style>
+        div {
+            line-height: 1;
+        }
 
-    <label>Name:</label>
-    <input type="text">
+        /* .main {
 
-    <br><br>
+        } */
 
-    <input type="submit">
+        .inner {
+            background-color: red;
 
+            display: block;
+            /* size */
+            width: 100px;
+            height: 100px;
+            
+            margin: 200px 20px 20px 200px;
+            padding: 70px 10px 30px 50px;
+
+            border: 10px solid black;
+            outline: 2px solid red;
+
+            font-size: large;
+            font-weight: medium;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
     
-
-</form>
+    <div class="main">
+       outer box
+        <div class="inner">
+            inner box
+        </div>
+    </div>
+</body>
+</html>
